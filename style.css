@@ -42,7 +42,6 @@ body {
 }
 
 .barraRodape {
-  position: fixed;
   bottom: 0;
   background-color: #1F1F1F; 
   color: white;
