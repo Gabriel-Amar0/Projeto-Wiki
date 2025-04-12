@@ -5,7 +5,7 @@
 }
 
 html, body {
-  font-family: Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif; /* a padrao era Arial, sans-serif */
   overflow-x: hidden;
   width: 100%;
 }
@@ -15,24 +15,22 @@ a {
   color: inherit;
 }
 
+.caixa {
+  background-color: #f8f8f8;     /* cor de fundo (pode mudar) */
+  border-radius: 10px;           /* bordas arredondadas */
+  padding: 20px;                 /* espaço interno */
+  margin: 40px auto;             /* espaço externo, centralizado */
+  max-width: 800px;              /* largura máxima */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* sombra opcional */
+}
+
 .barraRed {
   background-color: #A22A2A; 
   color: black;
   text-align: center;
   padding: 20px;
   font-style: italic;
-  font-weight: bold;
-  font-size: 16px;
-  width: 100%; 
-}
-
-.barraBlack {
-  background-color: black; 
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-style: italic;
-  font-weight: bold;
+  font-weight: ;
   font-size: 16px;
   width: 100%; 
 }
@@ -43,6 +41,17 @@ a {
   text-align: center;
   padding: 20px;
   font-style: italic;
+  font-weight:;
+  font-size: 16px;
+  width: 100%; 
+}
+
+.barraBlack {
+  background-color: black; 
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-style: normal;
   font-weight: bold;
   font-size: 16px;
   width: 100%; 
