@@ -17,7 +17,7 @@ a {
 
 .barraRed {
   background-color: #A22A2A; 
-  color: #1F1F1F;
+  color: black;
   text-align: center;
   padding: 20px;
   font-style: italic;
@@ -27,7 +27,7 @@ a {
 }
 
 .barraBlack {
-  background-color: #1F1F1F; 
+  background-color: black; 
   color: white;
   text-align: center;
   padding: 20px;
@@ -39,7 +39,7 @@ a {
 
 .barraWhite {
   background-color: #FDFAEC; 
-  color: #1F1F1F;
+  color: black;
   text-align: center;
   padding: 20px;
   font-style: italic;
