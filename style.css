@@ -16,12 +16,12 @@ a {
 }
 
 .caixa {
-  background-color: #f8f8f8;     /* cor de fundo (pode mudar) */
-  border-radius: 10px;           /* bordas arredondadas */
-  padding: 20px;                 /* espaço interno */
-  margin: 5% ;             /* espaço externo, centralizado */
-  max-width: 90%;              /* largura máxima */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 1); /* sombra opcional */
+  background-color: #FDFAEC;     
+  border-radius: 10px;           
+  padding: 25px;                 
+  margin: 2% auto;             
+  max-width: 95%;              
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 1); 
 }
 
 .barraRed {
