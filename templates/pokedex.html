@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokédex Kanto</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Pokédex Kanto</h1>
+
+  <form action="/search" method="get">
+    <input type="text" id="nameFilter" name="name" placeholder="Search By Name">
+    <input type="text" id="numberFilter" name="number" placeholder="Search By Number"><br><br>
+    <button type="submit">Search</button>
+  </form>
+
+  <select id="typeFilter">
+    <option value="all">All</option>
+    <option value="Normal">Normal</option>
+    <option value="Fire">Fire</option>
+    <option value="Water">Water</option>
+    <option value="Electric">Electric</option>
+    <option value="Grass">Grass</option>
+    <option value="Ice">Ice</option>
+    <option value="Fighting">Fighting</option>
+    <option value="Poison">Poison</option>
+    <option value="Ground">Ground</option>
+    <option value="Flying">Flying</option>
+    <option value="Psychic">Psychic</option>
+    <option value="Bug">Bug</option>
+    <option value="Rock">Rock</option>
+    <option value="Ghost">Ghost</option>
+    <option value="Dragon">Dragon</option>
+    <option value="Dark">Dark</option>
+    <option value="Steel">Steel</option>
+    <option value="Fairy">Fairy</option>
+  </select>
+
+  <div id="pokedex">
+    {% for p in pokemons %}
+    <div class="pokemon" data-type="{{ p.type }}" data-name="{{ p.name | lower }}">
+      <a class="PokeName" href="{{ url_for('pokemon_detail', number=p.number) }}">
+        <img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.name }}">
+        <p>#{{ "%03d"|format(p.number) }}<br>{{ p.name }}<br>{{p.type}}</p>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    function applyFilters() {
+      const nameInput = document.getElementById('nameFilter').value.toLowerCase();
+      const numberInput = document.getElementById('numberFilter').value;
+      const selectedType = document.getElementById('typeFilter').value;
+
+      const pokemons = document.querySelectorAll('.pokemon');
+
+      pokemons.forEach(pokemon => {
+        const nameData = pokemon.getAttribute('data-name');
+        const types = pokemon.getAttribute('data-type').split('-');
+        const numberText = pokemon.querySelector('p').innerText;
+
+        const matchesName = nameInput === "" || nameData.includes(nameInput);
+        const matchesNumber = numberInput === "" || numberText.includes(`#${numberInput.padStart(3, '0')}`) || numberText.includes(numberInput);
+        const matchesType = selectedType === "all" || types.includes(selectedType);
+
+        if (matchesName && matchesNumber && matchesType) {
+          pokemon.style.display = 'inline-block';
+        } else {
+          pokemon.style.display = 'none';
+        }
+      });
+    }
+
+    document.getElementById('nameFilter').addEventListener('input', applyFilters);
+    document.getElementById('numberFilter').addEventListener('input', applyFilters);
+    document.getElementById('typeFilter').addEventListener('change', applyFilters);
+  </script>
+
+</body>
+</html>

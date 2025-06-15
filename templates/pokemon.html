@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ pokemon.name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  
+  <div class="nav-buttons">
+    {% if prev_number %}
+      <a href="{{ url_for('pokemon_detail', number=prev_number) }}" class="button">← {{"%03d"|format(prev_number)}}</a>
+    {% endif %}
+
+    <a href="/" class="button-home">Home</a>
+
+    {% if next_number %}
+    <a href="{{ url_for('pokemon_detail', number=next_number) }}" class="button">{{"%03d"|format(next_number)}} →</a>
+    {% endif %}
+  </div>
+
+  <div class="pokemon-detail">
+    <img src="{{ url_for('static', filename=pokemon.real) }}" alt="{{ pokemon.name }}">
+    <h1>#{{ "%03d"|format(pokemon.number) }}<br>{{ pokemon.name }}</h1>
+    
+    <p ><strong>Tipo:</strong> {{ pokemon.type }}</p>
+    <p><strong>Descrição:</strong> {{ pokemon.description }}</p>
+    <p><strong>Fraquezas:</strong> {{ pokemon.weakness }}</p>
+    <p><strong>Where to find {{ pokemon.name }}: </strong> {{ pokemon.locate }}</p>
+  </div>
+  
+</body>
+</html>
